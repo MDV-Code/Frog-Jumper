@@ -7,7 +7,10 @@ class Steuerung:
         self.down = False
         self.left = False
         self.right = False
+        self.direction = "s"
+        
         screen.listen()
+
         
     def controller(self, screen):
         screen.onkeypress(self.up_player, "Up")
@@ -24,7 +27,7 @@ class Steuerung:
         
     def up_player(self):
         self.up = True
-    
+
     def release_up_player(self):
         self.up = False
     
@@ -46,23 +49,29 @@ class Steuerung:
     def release_right_player(self):
         self.right = False
     
-    def movement(self, player):    
+    def movement(self, frog, player):    
         if self.up:
+            self.direction = "n"
             y = player.ycor()
-            player.goto(player.xcor(),y+20)
+            player.goto(player.xcor(),y+40)
+            
             
         if self.down:
+            self.direction = "s"
             y = player.ycor()
-            player.goto(player.xcor(),y-20)
+            player.goto(player.xcor(),y-40)
             
         if self.left:
+            self.direction = "w"
             x = player.xcor()
-            player.goto(x-20,player.ycor())
+            player.goto(x-40,player.ycor())
             
         if self.right:
+            self.direction = "o"
             x = player.xcor()
-            player.goto(x+20,player.ycor())
-    
+            player.goto(x+40,player.ycor())
+            
+        frog.erstelle_bild(self.direction)
     class Movement():
         def __init__(self):
             pass
