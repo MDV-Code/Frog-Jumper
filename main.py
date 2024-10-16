@@ -10,7 +10,6 @@ screen.bgcolor("white")
 frog = Frogger(screen)
 steuerung = Steuerung(screen)
 steuerung.controller(screen)
- 
 screen.update()
 game_is_on = True
 last_movement =["n","s","e","w"]  #Nord,Süd, Ost, West 
