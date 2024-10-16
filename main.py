@@ -18,7 +18,7 @@ while game_is_on:
     screen.update()
     
     steuerung.movement(frog, frog.bild)
-                                    #print("schleife ist an")
+                                  
     time.sleep(0.15)
 
 screen.exitonclick()
