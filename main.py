@@ -23,3 +23,4 @@ while game_is_on:
     time.sleep(0.15)
 
 screen.exitonclick()
+
