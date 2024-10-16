@@ -6,6 +6,7 @@ class Frogger(Turtle):
         self.frog
         self.froglist = 0
         for bild in range(0, 49):
+            print(f"./sprites/front/f{bild}.gif")
             screen.register_shape(f"./sprites/front/f{bild}.gif")
         for bild in range(0, 16):
             screen.register_shape(f"./sprites/links_sprung/l{bild}.gif")
@@ -23,11 +24,31 @@ class Frogger(Turtle):
             screen.register_shape(f"./sprites/tot/dead{bild}.gif")            
 
     def erstelle_bild(self,last_movement):
+        if last_movement == "s":
+            if self.froglist == 49:
+                #print("here")
+                self.froglist = 0
+            self.frog.shape(f"./sprites/front/f{self.froglist}.gif")
+            self.froglist += 1
         
-        if self.froglist == 49:
-            self.froglist = 0
-        self.frog.shape(f"./sprites/front/f{self.froglist}.gif")
-        self.froglist += 1
+        elif last_movement == "n":
+            if self.froglist >= 1:
+                self.froglist = 1
+            self.frog.shape(f"./sprites/oben_stehen/{self.froglist}t.gif")
+            self.froglist += 1
+
+        elif last_movement == "o":
+            if self.froglist >= 9:
+                self.froglist = 1
+            self.frog.shape(f"./sprites/rechts_stehen/f{self.froglist}r.gif")
+            self.froglist += 1
+            
+        else: 
+            if self.froglist >= 10:
+                self.froglist = 1
+            self.frog.shape(f"./sprites/links_stehen/f{self.froglist}l.gif")
+            self.froglist += 1
+
 
     def links_sprung(self):
         shapelist = 1

@@ -12,11 +12,11 @@ steuerung = Steuerung(screen)
 steuerung.controller(screen)
 screen.update()
 game_is_on = True
-last_movement =["n","s","e","w"]  #Nord,Süd, Ost, West 
+last_movement = "s"   #  ["n","s","e","w"]  #Nord,Süd, Ost, West 
 screen.update()
 while game_is_on:
     screen.update()
-    frog.erstelle_bild()
+    frog.erstelle_bild(last_movement)
     steuerung.movement(frog.frog)
                                     #print("schleife ist an")
     time.sleep(0.15)
