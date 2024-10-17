@@ -11,6 +11,7 @@ screen.bgcolor("white")
 frog = Frogger(screen)
 steuerung = Steuerung(screen)
 steuerung.controller(screen)
+map = Map(screen)
 screen.update()
 game_is_on = True
 screen.update()

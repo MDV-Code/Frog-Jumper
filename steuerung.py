@@ -63,31 +63,43 @@ class Steuerung:
     def movement(self, frog, player):    
         if self.up:
             self.direction = "n"
-            y = player.ycor()
-            player.goto(player.xcor(),y+40)
+            for i in range(1,10):
+                y = player.ycor()
+                player.goto(player.xcor(),y+4)
+                sleep(0.008)
+                player.shape(f"./sprites/oben_sprung/t{i}.gif")
+                self.screen.update()
             
             
         elif self.down:
             self.direction = "s"
-            y = player.ycor()
-            player.goto(player.xcor(),y-40)
+            for i in range(1,10):
+                y = player.ycor()
+                player.goto(player.xcor(),y-4)
+                sleep(0.008)
+                player.shape(f"./sprites/unten_sprung/{i}t.gif")
+                self.screen.update()
             
         elif self.left:
             self.direction = "w"
-            x = player.xcor()
-            player.goto(x-40,player.ycor())
+            for i in range(1,10):
+                x = player.xcor()
+                player.goto(x-4,player.ycor())
+                sleep(0.008)
+                player.shape(f"./sprites/links_sprung/l{i}.gif")
+                self.screen.update()
             
         elif self.right:
             self.direction = "o"
-            for i in range(1,20):
+            for i in range(1,10):
                 x = player.xcor()
-                player.goto(x+2,player.ycor())
+                player.goto(x+4,player.ycor())
                 sleep(0.008)
                 player.shape(f"./sprites/rechts_sprung/r{i}.gif")
                 self.screen.update()
             
         
-            # player.goto(x+40,player.ycor())
+
             
         frog.erstelle_bild(self.direction, self.jump)
     class Movement():
