@@ -21,6 +21,7 @@ class Frogger(Turtle):
         for bild in range(1,2):       
             screen.register_shape(f"./sprites/tot/dead{bild}.gif")
 
+
     def erstelle_bild(self, direction, jump):
         
         if direction == "s":
