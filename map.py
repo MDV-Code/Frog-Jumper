@@ -9,6 +9,9 @@ class Map(Turtle):
         screen.register_shape("./sprites/textures/gras4.gif")
         screen.register_shape("./sprites/textures/sand.gif")
         screen.register_shape("./sprites/textures/street.gif")
+        screen.register_shape("./sprites/textures/street1.gif")
+        screen.register_shape("./sprites/textures/street2.gif")
+        screen.register_shape("./sprites/textures/street3.gif")
         self.map_coordinates = []
         self.map_segments = []
         self.map_positions()
@@ -31,12 +34,51 @@ class Map(Turtle):
                     map_segment.shape(f"./sprites/textures/gras{randint(1,4)}.gif")
                 elif position[2] >= 2:
                     map_segment.shape("./sprites/textures/sand.gif")
-            if position[1] < 280 and position[1] >= 140 or position[1] < 60 and position[1] >= -100 or position[1] < -180 and position[1] >= -300:
+            #################################################^^^^^START^^^^
+            
+            ############FAHRBAHNLINIEN ERMITTELN
+            if (
+                position[1] < 240 and position[1] >= 160 or
+                position[1] < 40 and position[1] >= 0 or
+                position[1] < -40 and position[1] >= -80 or
+                position[1] < -240 and position[1] >= -280
+                ):
+                ###### FAHRBAHNLINIEN FÜLLEN
+                for pos in range(-460, 480, 80):
+                    if position[0] == pos:
+                        map_segment.shape("./sprites/textures/street1.gif")
+                ###### ZWISCHEN DEN FAHRBAHNLINIEN FÜLLEN
+                for pos in range(-420, 480, 80):
+                    if position[0] == pos:
+                        map_segment.shape("./sprites/textures/street.gif")
+            ######## NUR FAHRBAHN FÜLLEN (ZWEITE GROßE STRAßE MITTE)
+            elif position[1] < 0 and position[1] >= -40:
                 map_segment.shape("./sprites/textures/street.gif")
-            elif position[2] == 1:
-                map_segment.shape(f"./sprites/textures/gras{randint(1,4)}.gif")
-            elif position[2] >= 2:
-                map_segment.shape("./sprites/textures/sand.gif")
+
+            ##############BOARDSTEINKANTEN        
+            if (
+                position[1] < 280 and position[1] >= 240 or
+                position[1] < 80 and position[1] >= 40 or
+                position[1] < -200 and position[1] >= -240
+                ):
+                map_segment.shape("./sprites/textures/street2.gif")
+            elif(
+                position[1] < 200 and position[1] >= 160 or
+                position[1] < -80 and position[1] >= -120 or
+                position[1] < -280 and position[1] >= -320
+                ):
+                map_segment.shape("./sprites/textures/street3.gif")
+            ################### RESTLICHEN FLÄCHEN ZUFÄLLIG GENERIEREN         
+            elif(
+                position[1] < 160 and position[1] >= 80 or
+                position[1] < -120 and position[1] >= -200 or
+                position[1] < -320 and position[1] >= -360
+                ):
+                if position[2] == 1:
+                    map_segment.shape(f"./sprites/textures/gras{randint(1,4)}.gif")
+                elif position[2] >= 2:
+                    map_segment.shape("./sprites/textures/sand.gif")
+            
                 
             map_segment.penup()
             map_segment.shapesize(2)
