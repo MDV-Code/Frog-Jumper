@@ -54,7 +54,7 @@ class Frogger(Turtle):
             self.froglist += 1
         
         elif jump == "n":
-            if self.froglist >= 11:
+            if self.froglist >= 10:
                 self.froglist = 1
             self.bild.shape(f"./sprites/oben_stehen/{self.froglist}f.gif")
             self.froglist += 1
