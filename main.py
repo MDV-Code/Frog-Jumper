@@ -4,6 +4,8 @@ from steuerung import Steuerung
 from map import Map
 import time
 screen = Screen()
+screen.setup (width=960, height=775)
+screen.title("Frog Jumper")
 screen.tracer(0)
 screen.bgcolor("white")
 
