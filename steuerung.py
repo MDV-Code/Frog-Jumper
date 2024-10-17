@@ -62,7 +62,7 @@ class Steuerung:
     def movement(self, frog, player : Turtle):    
         if self.up:
             self.direction = "n"
-            for i in range(1,10):
+            for i in range(1,11):
                 y = player.ycor()
                 player.goto(player.xcor(),y+4)
                 sleep(0.008)
@@ -72,7 +72,7 @@ class Steuerung:
             
         elif self.down:
             self.direction = "s"
-            for i in range(1,10):
+            for i in range(1,11):
                 y = player.ycor()
                 player.goto(player.xcor(),y-4)
                 sleep(0.008)
@@ -81,7 +81,7 @@ class Steuerung:
             
         elif self.left:
             self.direction = "w"
-            for i in range(1,10):
+            for i in range(1,11):
                 x = player.xcor()
                 player.goto(x-4,player.ycor())
                 sleep(0.008)
@@ -90,7 +90,7 @@ class Steuerung:
             
         elif self.right:
             self.direction = "o"
-            for i in range(1,10):
+            for i in range(1,11):
                 x = player.xcor()
                 player.goto(x+4,player.ycor())
                 sleep(0.008)
