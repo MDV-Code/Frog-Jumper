@@ -1,10 +1,9 @@
-from objekts import Frogger
-from turtle import Screen
+from turtle import Turtle, TurtleScreen
 from time import sleep
 
 
 class Steuerung:
-    def __init__(self, screen : Screen):
+    def __init__(self, screen : TurtleScreen):
         self.up = False
         self.down = False
         self.left = False
@@ -15,7 +14,7 @@ class Steuerung:
         screen.listen()
 
         
-    def controller(self, screen):
+    def controller(self, screen : TurtleScreen):
         screen.onkeypress(self.up_player, "Up")
         screen.onkeyrelease(self.release_up_player, "Up")
 
@@ -60,7 +59,7 @@ class Steuerung:
         self.right = False
         self.jump = "x"
         
-    def movement(self, frog, player):    
+    def movement(self, frog, player : Turtle):    
         if self.up:
             self.direction = "n"
             for i in range(1,10):

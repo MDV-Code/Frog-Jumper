@@ -1,8 +1,8 @@
-from turtle import Turtle
+from turtle import Turtle, TurtleScreen
 from random import randint
 
 class Map(Turtle):
-    def __init__(self, screen):
+    def __init__(self, screen : TurtleScreen):
         screen.register_shape("./sprites/textures/gras1.gif")
         screen.register_shape("./sprites/textures/gras2.gif")
         screen.register_shape("./sprites/textures/gras3.gif")

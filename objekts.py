@@ -1,7 +1,7 @@
-from turtle import Turtle, Screen
+from turtle import Turtle, TurtleScreen
 
 class Frogger(Turtle):
-    def __init__(self, screen : Screen) -> None:
+    def __init__(self, screen : TurtleScreen):
         self.frogger()
         self.bild
         self.froglist = 1
