@@ -7,7 +7,7 @@ class Frogger(Turtle):
         self.froglist = 1
 
        
-        for bild in range(1, 10):
+        for bild in range(1, 11):
             screen.register_shape(f"./sprites/oben_stehen/{bild}f.gif")
             screen.register_shape(f"./sprites/unten_stehen/f{bild}.gif")
             screen.register_shape(f"./sprites/links_stehen/{bild}l.gif")
@@ -60,13 +60,13 @@ class Frogger(Turtle):
             self.froglist += 1
 
         elif jump == "o":
-            if self.froglist >= 11:
+            if self.froglist >= 10:
                 self.froglist = 1
             self.bild.shape(f"./sprites/rechts_stehen/{self.froglist}r.gif")
             self.froglist += 1
             
         elif jump == "w":
-            if self.froglist >= 11:
+            if self.froglist >= 10:
                 self.froglist = 1
             self.bild.shape(f"./sprites/links_stehen/{self.froglist}l.gif")
             self.froglist += 1
