@@ -21,7 +21,7 @@ class Map(Turtle):
             x = i
             for j in range(360, -400, -40):
                 y = j
-                r = randint(1,3)
+                r = randint(1,2)
                 self.map_coordinates.append((x,y,r))
         print(self.map_coordinates)
         self.generate_map()
@@ -76,7 +76,7 @@ class Map(Turtle):
                 ):
                 if position[2] == 1:
                     map_segment.shape(f"./sprites/textures/gras{randint(1,4)}.gif")
-                elif position[2] >= 2:
+                elif position[2] == 2:
                     map_segment.shape("./sprites/textures/sand.gif")
             
                 
